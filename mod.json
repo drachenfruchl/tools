@@ -1,0 +1,27 @@
+{
+	"Name": "drachenfruchl.tools",
+	"Description": "",
+	"Version": "1.0.0",
+	"RequiredOnClient": true,
+	"LoadPriority": 0,
+	"Scripts": [
+		{
+			"Path": "tools.nut",
+			"RunOn": "( CLIENT || UI )"
+		}
+	],
+	"ConVars": [
+		{
+			"Name": "dtool_onlineFriends",
+			"DefaultValue": ""
+		},
+		{
+			"Name": "dtool_offlineFriends",
+			"DefaultValue": ""
+		},
+		{
+			"Name": "dtool_partyMembers",
+			"DefaultValue": ""
+		}
+	]
+}
