@@ -180,7 +180,6 @@ string function dtool_rainbowModText( string text ){
 	}
 	return result
 }
-
 #elseif CLIENT
 global struct LogoData
 {
@@ -667,5 +666,35 @@ bool function dtool_isFriend( string playerName ){
 
 bool function dtool_inParty( string playerName ){
 	return split( GetConVarString( "dtool_partyMembers" ), " " ).contains( playerName )
+}
+
+bool function dtool_isModEnabled( string name, string version = "" ){
+    foreach( ModInfo mod in NSGetModsInformation() ){
+		if( mod.enabled && mod.name == name ){
+            if( version != "" && mod.version != version )
+                return false
+            return true
+        }	
+	}
+    return false
+}
+
+void function dtool_setModEnabled( string name, string version, bool enable ){
+    NSSetModEnabled( name, version, enable )
+}
+
+void function dtool_emitSoundsOnEntity( entity ent, array<string> sounds ){
+	foreach( sound in sounds )
+		EmitSoundOnEntity( ent, sound )
+}
+
+void function dtool_emitSoundsAtPosition( vector pos, array<string> sounds ){
+	foreach( sound in sounds )
+		EmitSoundAtPosition( TEAM_ANY, pos, sound )
+}
+
+void function dtool_stopSoundsOnEntity( entity ent, array<string> sounds ){
+	foreach( sound in sounds )
+		StopSoundOnEntity( ent, sound )
 }
 #endif
