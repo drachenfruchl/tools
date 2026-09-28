@@ -2,7 +2,6 @@
 	"Name": "drachenfruchl.tools",
 	"Description": "",
 	"Version": "1.0.0",
-	"RequiredOnClient": true,
 	"LoadPriority": 0,
 	"Scripts": [
 		{
